@@ -1,0 +1,43 @@
+body{
+    background-image: url(1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.name{
+    justify-content: center;
+    display: flex;
+    
+
+}
+input{
+    margin-top: 3.8em;
+
+}
+.box{
+    font-size: larger;
+}
+.move{
+    justify-content: center;
+    display: flex;
+}
+.myBtn{
+    justify-content: center;
+    display: flex;
+    
+}
+span{
+    font-size: 1.5em;
+}
+.displayPlace{
+    justify-content: center;
+    display: flex;
+    
+}
+
+
+.counter {
+    justify-content: center;
+    display: flex;
+    
+  }
