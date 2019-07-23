@@ -5,12 +5,13 @@ function GreetingFactory(names) {
         if(!lang){
             return "First select the language "
         }
+         var nameUpp = name.toUpperCase()
 
-        if (namesGreeted[name] === undefined){
-            namesGreeted[name] = 0;
+        if (namesGreeted[nameUpp] === undefined){
+            namesGreeted[nameUpp] = 0;
         }
     
-        var upperCaseName = name.charAt(0).toUpperCase()+name.slice(1);
+        var upperCaseName = name.charAt(0).toUpperCase() + name.slice(1);
 
         if (lang === 'English') {
             return "Hello, " + upperCaseName;
@@ -30,7 +31,7 @@ function GreetingFactory(names) {
  function getName() {
     return namesGreeted;
 }
-
+console.log()
     return {
        
         greetInDiffLanguages,

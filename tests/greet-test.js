@@ -39,17 +39,7 @@ describe('GreetingFactory function', function () {
 
         assert.deepEqual(2, instance.counter());
     });
-    it('should keep track of the names greeted', function () {
-
-        var instance = GreetingFactory();
-
-        instance.greetInDiffLanguages('Phoziswa', "English")
-        instance.greetInDiffLanguages('Asa', "English")
-        instance.greetInDiffLanguages('Vee', "isiXhosa")
-
-       
-        assert.deepEqual(instance.getName("Asenathi"),  {Phoziswa: 0, Asa: 0, Vee: 0});
-    });
+    
     it('should return "First select the language" if the name is greeted without selecting the language', function () {
 
         var instance = GreetingFactory();

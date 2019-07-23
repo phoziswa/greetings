@@ -20,7 +20,7 @@ function radioBtn() {
 
     }
     if (textBoxElement.value == "" || !isNaN(textBoxElement.value)) {
-        return false;
+        return  false;
     }
 
 
