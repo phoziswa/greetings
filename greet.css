@@ -16,7 +16,11 @@ input{
 }
 .box{
     font-size: larger;
-}
+    justify-content: center;
+    display: flex;
+       
+      }
+
 .move{
     justify-content: center;
     display: flex;
@@ -36,8 +40,13 @@ span{
 }
 
 
-.counter {
+ .counter {
     justify-content: center;
     display: flex;
-    
+   
+  }
+  .count {
+    justify-content: center;
+    display: flex;
+   
   }

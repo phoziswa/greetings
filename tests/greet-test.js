@@ -1,31 +1,71 @@
-
-describe('addName', function () {
-    it('should add name to the names greeted if it is not there', function () {
-
-        var greetingLang = GreetingFactory();
-
-        assert.deepEqual(["Victor"], greetingLang.addName("Victor"));
-    });
-});
-
-
-describe('greet function', function () {
+describe('GreetingFactory function', function () {
     it('should greet a person in English ', function () {
 
-        var greetingLang = GreetingFactory();
+        var instance = GreetingFactory();
 
-        assert.deepEqual("Hello, Victor", greetingLang.greetInDiffLanguageS("Victor", "English"));
+        assert.deepEqual("Hello, Victor", instance.greetInDiffLanguages("Victor", "English"));
     });
     it('should greet a person in isiXhosa', function () {
 
-        var greetingLang = GreetingFactory();
+        var instance = GreetingFactory();
 
-        assert.deepEqual("Molo, Victor", greetingLang.greetInDiffLanguageS("Victor", "isiXhosa"));
+        assert.deepEqual("Molo, Victor", instance.greetInDiffLanguages("Victor", "isiXhosa"));
     });
     it('should greet a person in Afrikaans', function () {
 
-        var greetingLang = GreetingFactory();
+        var instance = GreetingFactory();
 
-        assert.deepEqual("Hallo, Victor", greetingLang.greetInDiffLanguageS("Victor", "Afrikaans"));
+        assert.deepEqual("Hallo, Victor", instance.greetInDiffLanguages("Victor", "Afrikaans"));
     });
+
+    it('should not increment the counter if the name entered is already greeted ', function () {
+
+        var instance = GreetingFactory();
+
+        instance.greetInDiffLanguages('Phoziswa', "English")
+        instance.greetInDiffLanguages('Phoziswa', "English")
+        instance.greetInDiffLanguages('Sihle', "isiXhosa")
+
+
+        assert.deepEqual(2, instance.counter());
+    });
+    it('should only greet the name entered if its letters not numbers', function () {
+
+        var instance = GreetingFactory();
+
+        instance.greetInDiffLanguages('Phoziswa', "English")
+        instance.greetInDiffLanguages('21453')
+        instance.greetInDiffLanguages('Sihle', "isiXhosa")
+
+        assert.deepEqual(2, instance.counter());
+    });
+    it('should keep track of the names greeted', function () {
+
+        var instance = GreetingFactory();
+
+        instance.greetInDiffLanguages('Phoziswa', "English")
+        instance.greetInDiffLanguages('Asa', "English")
+        instance.greetInDiffLanguages('Vee', "isiXhosa")
+
+       
+        assert.deepEqual(instance.getName("Asenathi"),  {Phoziswa: 0, Asa: 0, Vee: 0});
+    });
+    it('should return "First select the language" if the name is greeted without selecting the language', function () {
+
+        var instance = GreetingFactory();
+       
+        assert.deepEqual(instance.greetInDiffLanguages("First select the language"), instance.greetInDiffLanguages());
+    });
+
+    
+    it('should keep track of the names greeted', function () {
+
+        var instance = GreetingFactory();
+
+        instance.greetInDiffLanguages('Phoziswa', "English")
+        instance.greetInDiffLanguages('Asa', "English")
+        instance.greetInDiffLanguages('Vee', "isiXhosa")
+
+    assert.deepEqual(instance.counter(),3);
+ });
 });

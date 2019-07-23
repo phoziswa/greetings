@@ -1,31 +1,17 @@
-function GreetingFactory() {
-    var namesGreeted = []
+function GreetingFactory(names) {
+    var namesGreeted = names || {};
 
-    function addName(name) {
-        var nameExist = namesGreeted.includes(name)
-        if (nameExist === false) {
-            namesGreeted.push(name);
+    function greetInDiffLanguages(name, lang) {
+        if(!lang){
+            return "First select the language "
         }
-    }
-    function returningNamesGreeted() {
-        return namesGreeted;
 
-    }
+        if (namesGreeted[name] === undefined){
+            namesGreeted[name] = 0;
+        }
+    
+        var upperCaseName = name.charAt(0).toUpperCase()+name.slice(1);
 
-
-    function setName(name) {
-
-        namesGreeted = name
-    }
-
-    function getName(name) {
-        return name;
-    }
-
-
-    function greetInDiffLanguageS(name, lang) {
-        
-        var upperCaseName = name.charAt(0).toUpperCase() + name.slice(1);
         if (lang === 'English') {
             return "Hello, " + upperCaseName;
         }
@@ -36,13 +22,19 @@ function GreetingFactory() {
             return "Hallo, " + upperCaseName;
         }
     }
+ function counter (){
+     var peopleCounted = Object.keys(namesGreeted)
+     return peopleCounted.length;
+
+ }
+ function getName() {
+    return namesGreeted;
+}
 
     return {
-        addName,
-        setName,
-        getName,
-        greetInDiffLanguageS,
-        returningNamesGreeted
-
+       
+        greetInDiffLanguages,
+        counter,
+        getName
     }
 }
